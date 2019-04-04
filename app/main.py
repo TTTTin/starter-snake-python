@@ -55,7 +55,7 @@ def move():
             snake AI must choose a direction to move in.
     """
     print(json.dumps(data))
-
+    #no greedy
     direction = mybfs(data)
     return move_response(direction)
 
