@@ -4,7 +4,7 @@ import random
 import bottle
 
 from api import ping_response, start_response, move_response, end_response
-
+from algorithm import mybfs
 @bottle.route('/')
 def index():
     return '''
@@ -56,10 +56,14 @@ def move():
     """
     print(json.dumps(data))
 
-    directions = ['up', 'down', 'left', 'right']
-    direction = random.choice(directions)
-
+    direction = mybfs(data)
     return move_response(direction)
+
+
+    # directions = ['up', 'down', 'left', 'right']
+    # direction = random.choice(directions)
+    #
+    # return move_response(direction)
 
 
 @bottle.post('/end')
