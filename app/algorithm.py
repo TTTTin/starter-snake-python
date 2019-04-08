@@ -145,7 +145,7 @@ def mybfs(data):
             t = {'x':i,'y':j}
             q = shortest_path_to(head['x'],head['y'],t['x'],t['y'],mapjz,width,height)
             if ans['x'] == -1 or dis(t, head) > dis(ans, head) :
-                if mapjz[i][j] == 0 and q[1] == True:
+                if mapjz[i][j] == 0 and q[0] == True:
                     ans = t
     t = shortest_path_to(head['x'],head['y'],ans['x'],ans['y'],mapjz,width,height)
     mapai = t[1]
