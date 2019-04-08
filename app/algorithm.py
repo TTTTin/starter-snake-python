@@ -127,8 +127,8 @@ def mybfs(data):
                 t = apple[i]
                 apple[i] = apple[j]
                 apple[j] = t
-    
-    if life < 50:
+
+    if life > 50:
         t = shortest_path_to(head['x'],head['y'],tail['x'],tail['y'],mapjz,width,height)
         if t[0]:
             mapai = t[1]
