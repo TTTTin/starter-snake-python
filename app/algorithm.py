@@ -108,8 +108,8 @@ def shortest_path_to(x1, y1, x2, y2, mapjz,width,height):
 
 
 def mybfs(data):
-    height = data['board']['height']
-    width = data['board']['width']
+    height = data['board']['height']-1
+    width = data['board']['width']-1
     mapjz = [[0] * 50 for i in range(50)]
     apple = data['board']['food']
     head = data['you']['body'][0]
