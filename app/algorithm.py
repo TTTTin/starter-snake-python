@@ -139,5 +139,22 @@ def mybfs(data):
                 return 'up'
             if mapai[head['x']][head['y']] == RIGHT:
                 return 'down'
+    ans = {'x':0,'y':0}
+    for i in range(width):
+        for j in range(height):
+            t = {'x':i,'y':j}
+            if mapjz[i][j] == 0 and dis(t,head) > dis(ans,head):
+                ans = t
+    t = shortest_path_to(head['x'],head['y'],ans['x'],ans['y'],mapjz,width,height)
+    mapai = t[1]
+
+    if mapai[head['x']][head['y']] == UP:
+        return 'left'
+    if mapai[head['x']][head['y']] == DOWN:
+        return 'right'
+    if mapai[head['x']][head['y']] == LEFT:
+        return 'up'
+    if mapai[head['x']][head['y']] == RIGHT:
+        return 'down'
 
     return 'up'
