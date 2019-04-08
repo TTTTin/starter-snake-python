@@ -113,6 +113,7 @@ def mybfs(data):
     mapjz = [[0] * 50 for i in range(50)]
     apple = data['board']['food']
     head = data['you']['body'][0]
+    life = data['you']['health']
     tail = data['you']['body'][-1]
     virtualmapjz = [[0] * 50 for i in range(50)]
 
@@ -126,6 +127,20 @@ def mybfs(data):
                 t = apple[i]
                 apple[i] = apple[j]
                 apple[j] = t
+    
+    if life < 50:
+        t = shortest_path_to(head['x'],head['y'],tail['x'],tail['y'],mapjz,width,height)
+        if t[0]:
+            mapai = t[1]
+            if mapai[head['x']][head['y']] == UP:
+                return 'left'
+            if mapai[head['x']][head['y']] == DOWN:
+                return 'right'
+            if mapai[head['x']][head['y']] == LEFT:
+                return 'up'
+            if mapai[head['x']][head['y']] == RIGHT:
+                return 'down'
+
 
     for var in apple:
         t = shortest_path_to(head['x'],head['y'],var['x'],var['y'],mapjz,width,height)
